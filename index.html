@@ -1,380 +1,1287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SheTech. - Canon Interchangeable Lens Camera</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="assets/st.png">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon EOS R10 - Mirrorless Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #ededed;
-            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Hanken Grotesk', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .navbar {
-            background-color: #dbd7d7;
-            outline: 3px solid #000000;
+        /* Navigation */
+        nav {
+            background-color: #1a1a1a;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #2a2a2a;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
         }
 
-        .navbar .container-fluid {
-            padding-top: 0.20rem;
-            padding-bottom: 0.20rem;
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .navbar .logo {
-            max-height: 60px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 60px;
             width: auto;
             display: block;
         }
 
-        .navbar .web-logo {
-            max-height: 60px;
-            width: auto;
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #888;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff0000;
+        }
+
+        .buy-now-btn {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.25) 100%), url('assets/headercanon.png') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            width: 100%;
+            padding: 0 4rem;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            min-height: 70vh;
+            margin: 0;
+            max-width: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            color: #fff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            font-style: italic;
+            color: #ff0000;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            max-width: 700px;
+        }
+
+        .hero h1 .highlight {
+            color: #ff0000;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Section */
+        section:not(.hero) {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        /* Technical Precision Section */
+        .technical-precision {
+            background-color: #0f0f0f;
+        }
+
+        .tech-intro {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .tech-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .tech-intro p {
+            color: #888;
+            font-size: 1rem;
+            max-width: 600px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.25rem;
+            margin-bottom: 3rem;
+            align-items: stretch;
+        }
+
+        .feature-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            border-color: #ff0000;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            width: 50px;
+            height: 50px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        /* Responsive adjustments for features grid */
+        @media (max-width: 1100px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .feature-card { min-height: auto; }
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .feature-description {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-top: 0.75rem;
+            flex: 1 1 auto;
+        }
+
+        /* Specs Grid */
+        .specs-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .spec-item {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .spec-item:hover {
+            border-color: #ff0000;
+        }
+
+        .spec-label {
+            color: #888;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Technical Specifications Section */
+        .technical-specs {
+            background-color: #1a1a1a;
+        }
+
+        .specs-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .specs-image {
+            text-align: center;
+        }
+        /* Carousel wrapper for specs images */
+        .specs-image {
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+            background-color: #0f0f0f;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.45s ease;
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
             display: block;
         }
 
-        .nav-categories {
-            background-color: #dbd7d7;
-            outline: 3px solid #000000;
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
         }
 
-        .nav-link {
-            color: #000 !important;
-            font-size: 1.2rem;
+        .carousel-button {
+            pointer-events: auto;
+            background: rgba(0,0,0,0.45);
+            border: none;
+            color: #fff;
+            padding: 0.5rem 0.75rem;
+            margin: 0 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            background: #444;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active { background: #ff0000; }
+
+        .specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .spec-group {
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 1.5rem;
+        }
+
+        .spec-group:last-child {
+            border-bottom: none;
+        }
+
+        .spec-group-title {
+            color: #ff0000;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            padding: 0.5rem 0;
+        }
+
+        .spec-row-label {
+            font-weight: 600;
+            color: #888;
+            min-width: 150px;
+        }
+
+        .spec-row-value {
+            color: #ffffff;
+            text-align: right;
+            flex: 1;
+        }
+
+        .download-link {
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .download-link:hover {
+            color: #cc0000;
+        }
+
+        /* Creator Bundles Section */
+        .creator-bundles {
+            background-color: #0f0f0f;
+        }
+
+        .bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .bundle-card {
+            background-color: #1a1a1a;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #2a2a2a;
+        }
+
+        .bundle-card:hover {
+            border-color: #ff0000;
+            transform: scale(1.02);
+        }
+
+        .bundle-image {
+            width: 100%;
+            height: 300px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+
+        .bundle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bundle-content {
+            padding: 2rem;
+        }
+
+        .bundle-label {
+            background-color: #ff0000;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .bundle-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-description {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .bundle-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-price .original {
+            color: #666;
+            text-decoration: line-through;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .select-bundle {
+            background-color: transparent;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-family: 'Hanken Grotesk', sans-serif;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .select-bundle:hover {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            border-top: 1px solid #2a2a2a;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #ff0000;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff0000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2a2a2a;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Checkout Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            border: 2px solid #ff0000;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #ff0000;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
             font-weight: 700;
         }
 
-        .nav-link:hover {
-            color: #555 !important;
+        .modal-close:hover {
+            color: #cc0000;
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .form-group input,
+        .form-group select {
+            background-color: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            color: #ffffff;
+            padding: 0.75rem;
+            font-family: 'Hanken Grotesk', sans-serif;
+            transition: border-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff0000;
+        }
+
+        .form-group input::placeholder {
+            color: #666;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .price-summary {
+            background-color: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .price-summary .label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-summary .total {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ff0000;
+        }
+
+        .checkout-btn {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 1rem;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Hanken Grotesk', sans-serif;
+            margin-top: 1rem;
+        }
+
+        .checkout-btn:hover {
+            background-color: #cc0000;
             transform: scale(1.05);
-            transition: 0.3s;
         }
 
-        .banner {
-            background-image: url('assets/headercanon.png');
-            background-size: cover;
-            background-position: center;
-            color: #ededed;
-            opacity: 100%;
-            height: 600px;
-            margin: 0 60px 60px 60px;
-            outline: 3px solid #000000;
+        .checkout-success {
+            text-align: center;
+            display: none;
         }
 
-        .banner h1 {
-            color: #ededed;
-            text-shadow: 2px 2px 4px #000000;
+        .checkout-success.show {
+            display: block;
         }
 
-        .banner h1:hover {
-            transform: scale(1.05);
-            transition: 0.3s;
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        .overview {
-            background-color: #dbd7d7;
-            outline: 3px solid #000000;
+        .success-message {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
 
-        .overview img:hover {
-            transform: scale(1.05);
-            transition: 0.3s;
+        .success-subtext {
+            color: #888;
+            margin-bottom: 2rem;
         }
 
-        .card {
-            background-color: #ededed;
-        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
 
-        .specification {
-            background-color: #dbd7d7;
-            outline: 3px solid #000000;
-        }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
 
-        .promos-inquiries {
-            background-color: #ededed;
-            outline: 3px solid #000000;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-        }
+            .hero-image-container {
+                height: 300px;
+            }
 
-        .lead {
-            color: #333333;
+            .specs-content {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .bundles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
         }
     </style>
-
 </head>
-
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm shadow-sm my-5 mx-5 rounded-5">
-        <div class="container-fluid g-5">
-            <a class="navbar-brand d-flex align-items-center col-sm-6" href="#">
-                <img src="assets/st.png" alt="shetech. logo" class="web-logo ps-5 me-5"> </a>
-            <a class="navbar-brand text-center" href="#">
-                <img src="assets/canon.png" alt="canon logo" class="logo ps-5 me-5"></a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/canon.png" alt="Canon logo">
+            </div>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#features">Features</a>
+                <a href="#specs">Specs</a>
+                <button class="buy-now-btn" id="buyNowBtn">Buy Now</button>
+            </div>
         </div>
     </nav>
 
-    <!-- Nav-categories Section -->
-    <div class="container nav-categories text-center py-2 px-2 my-5 rounded-5 shadow-sm">
-        <div class="row align-items-center">
-            <div class="col-4">
-                <div class="nav-item">
-                    <a class="nav-link" href="#overview">Overview</a>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero" id="overview">
+        <div class="hero-content">
+            <p class="hero-subtitle">Mirrorless Excellence</p>
+            <h1>Canon EOS R10</h1>
+            <p class="hero-description">A compact mirrorless camera built for fast, precise capture.</p>
+        </div>
+    </section>
+
+    <!-- Technical Precision Section -->
+    <section class="technical-precision" id="features">
+        <div class="tech-intro">
+            <h2>Technical Precision.</h2>
+            <p>The EOS R10 is designed for speed and clarity. Featuring a 24.2 MP sensor and the powerful DIGIC X processor.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">High-Speed Continuous Shooting</div>
+                <div class="feature-description">Capture fast-moving moments with up to 15 fps with the mechanical shutter and 23 fps with the electronic shutter.</div>
             </div>
-            <div class="col-4">
-                <div class="nav-item">
-                    <a class="nav-link" href="#product-details">Product Details</a>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <div class="feature-title">4K UHD Video</div>
+                <div class="feature-description">Unprecedented clarity with 4K UHD and 4K 60p, oversampled from 6K for professional-grade recording.</div>
             </div>
-            <div class="col-4">
-                <div class="nav-item">
-                    <a class="nav-link" href="#promos-inquiries">Promos & Inquiries</a>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">AI System</div>
+                <div class="feature-description">Dual Pixel CMOS AF II with intelligent subject detection for precise, fast focusing in any condition.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">Resolution</div>
+                <div class="feature-description">24.2 Megapixel APS-C CMOS sensor with outstanding detail and dynamic range for professional output.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔌</div>
+                <div class="feature-title">Connectivity</div>
+                <div class="feature-description">Seamless Workflow via built-in Wi-Fi and Bluetooth for instant sharing and remote control capabilities.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">Compact Design</div>
+                <div class="feature-description">Lightweight and portable design makes it the perfect companion for creators on the move.</div>
             </div>
         </div>
-    </div>
 
-    <!--Banner Section -->
-    <div class="banner d-flex align-items-center justify-content-center text-center rounded-5 mb-5 mt-5" id="banner">
-        <div class="container mt-5">
-            <h1 class="display-4 fw-bold white" ;>
-                Canon Interchangeable Lens Camera
-            </h1>
-            <p class="lead text-white">Experience photography like never
-                before.</p>
-        </div>
-    </div>
-
-    <!--Overview Section-->
-    <div id="overview" class="container-fluid overview my-5 py-5 mt-5">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center">
-                <img src="assets/cam1.png" class="img-fluid d-inline w-90" alt="Canon EOS R10" ;>
+        <div class="specs-showcase">
+            <div class="spec-item">
+                <div class="spec-label">Performance</div>
+                <div class="spec-value">23 fps</div>
             </div>
-            <div class="col-md-6">
-                <h2 class="display-4 fw-bold mb-3">Introducing Canon EOS R10</h2>
-                <p class="lead">
-                    The Canon EOS R10 redefines what it means to capture life’s moments. <br> Its lightweight design,
-                    rapid autofocus, and professional-grade performance, <br> this camera helps you turn creativity into
-                    reality.
-                </p>
-                <p class="fst-italic">
-                    Whether you're an aspiring photographer or a content creator on the move,
-                    the R10 combines portability <br> with power — giving you the edge to capture every shot with
-                    clarity and
-                    style.
-                </p>
-                <p class="fw-bold fs-5 fst-italic pt-4 text-uppercase">
-                    Step up from smartphone snapshots and experience photography <br> reimagined —
-                    discover why the Canon EOS R10 is the next step <br> for every modern creator!
-                </p>
+            <div class="spec-item">
+                <div class="spec-label">Resolution</div>
+                <div class="spec-value">24.2 MP</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Video</div>
+                <div class="spec-value">4K UHD</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- PRODUCT DETAILS SECTION -->
-    <div id="product-details" class="container my-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold display-4">Product Details</h2>
-            <p class="text-muted fst-italic fs-5">Explore the key features and technical specifications of the Canon EOS
-                R10.</p>
-        </div>
-    </div>
-
-    <div class="container-fluid features my-5 py-5">
-        <div class="container">
-            <div class="row align-items-center g-5">
-
-                <div class="col-md-6 px-4 mb-4 mb-md-0">
-                    <p class="fs-6 fst-italic">Capture fast-moving subjects with up to 15 fps continuous shooting,
-                        ensuring
-                        you never miss a moment.</p>
-                    <p class="fs-6 fst-italic">Experience minimal lag and blackout during shooting, thanks to the
-                        advanced
-                        electronic shutter.</p>
-                    <p class="fs-6 fst-italic">Discover endless creative possibilities with the compact and lightweight
-                        EOS
-                        R10.</p>
-                    <p class="fs-6 fst-italic">Featuring a 24.2MP APS-C CMOS sensor built on the advanced RF mount.</p>
-                    <p class="fs-6 fst-italic">It delivers a 1.6x telephoto advantage while maintaining exceptional
-                        image
-                        clarity.</p>
-                    <p class="fs-6 fst-italic">This mirrorless camera allows continuous shooting of up to 23 frames per
-                        second.</p>
-                    <p class="fs-6 fst-italic">It also supports stunning 4K UHD recording, including 6K oversampling and
-                        4K
-                        60p.</p>
-                </div>
-
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel"
-                        data-bs-interval="2000">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="assets/cam1.png" class="d-block w-100 img-fluid"
-                                    style="height: 400px; object-fit: contain;" alt="Camera Front">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/camback.png" class="d-block w-100 img-fluid"
-                                    style="height: 400px; object-fit: contain;" alt="Camera Back">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/camtop.png" class="d-block w-100 img-fluid"
-                                    style="height: 400px; object-fit: contain;" alt="Camera Top">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="assets/camleft.png" class="d-block w-100 img-fluid"
-                                    style="height: 400px; object-fit: contain;" alt="Camera Left">
-                            </div>
+    <!-- Technical Specifications Section -->
+    <section class="technical-specs" id="specs">
+        <h2>Technical Specifications.</h2>
+        
+        <div class="specs-content">
+                <div class="specs-image">
+                    <div class="carousel" id="specsCarousel">
+                        <div class="carousel-track">
+                            <div class="carousel-slide"><img src="assets/cam1.png" alt="Camera front view"></div>
+                            <div class="carousel-slide"><img src="assets/camleft.png" alt="Camera left view"></div>
+                            <div class="carousel-slide"><img src="assets/camback.png" alt="Camera back view"></div>
+                            <div class="carousel-slide"><img src="assets/camtop.png" alt="Camera top view"></div>
                         </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-button" data-action="prev">◀</button>
+                            <button class="carousel-button" data-action="next">▶</button>
+                        </div>
+                    </div>
+                    <div class="carousel-dots" id="specsCarouselDots"></div>
+                </div>
+
+            <div class="specs-list">
+                <div class="spec-group">
+                    <div class="spec-group-title">Sensor</div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Type</div>
+                        <div class="spec-row-value">24.2 MP APS-C CMOS</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Image Processor</div>
+                        <div class="spec-row-value">DIGIC X</div>
                     </div>
                 </div>
 
+                <div class="spec-group">
+                    <div class="spec-group-title">Resolution</div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Max Resolution</div>
+                        <div class="spec-row-value">24.2 Megapixel APS-C</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">ISO Range</div>
+                        <div class="spec-row-value">100-32000 (Expandable to 51200)</div>
+                    </div>
+                </div>
+
+                <div class="spec-group">
+                    <div class="spec-group-title">Connectivity</div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Wireless</div>
+                        <div class="spec-row-value">Seamless Workflow</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Protocols</div>
+                        <div class="spec-row-value">Wi-Fi and Bluetooth</div>
+                    </div>
+                </div>
+
+                <div class="spec-group">
+                    <div class="spec-group-title">Video</div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Resolution</div>
+                        <div class="spec-row-value">4K UHD, 1080p 120p</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Recording</div>
+                        <div class="spec-row-value">6K Oversampling, 4K 60p</div>
+                    </div>
+                </div>
+
+                <div class="spec-group">
+                    <div class="spec-group-title">Performance</div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Shooting Speed</div>
+                        <div class="spec-row-value">23 fps (Electronic Shutter)</div>
+                    </div>
+                    <div class="spec-row">
+                        <div class="spec-row-label">Autofocus</div>
+                        <div class="spec-row-value">Dual Pixel CMOS AF II</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creator Bundles Section -->
+    <section class="creator-bundles">
+        <h2>Creator Bundles.</h2>
+        
+        <div class="bundles-grid">
+            <div class="bundle-card">
+                <div class="bundle-image">
+                    <div style="font-size: 3rem;">
+                        <img src="assets/r10.jpg" alt="Vlogger Kit Bundle">
+                    </div>
+                </div>
+                <div class="bundle-content">
+                    <span class="bundle-label">Bundle</span>
+                    <h3 class="bundle-title">Vlogger Kit</h3>
+                    <p class="bundle-description">Everything you need for content creation. Includes EOS R10, RF-S 18-45mm lens, and wireless microphone.</p>
+                    <div class="bundle-price">$1,099 <span class="original">$1,299</span></div>
+                    <button class="select-bundle">Select Bundle</button>
+                </div>
+            </div>
+
+            <div class="bundle-card">
+                <div class="bundle-image">
+                    <div style="font-size: 3rem;">
+                        <img src="assets/canoncam.avif" alt="Content Creator Bundle">
+                    </div>
+                </div>
+                <div class="bundle-content">
+                    <span class="bundle-label">Bundle</span>
+                    <h3 class="bundle-title">Content Creator</h3>
+                    <p class="bundle-description">Professional setup for hybrid creators. Includes EOS R10, Canon L-series lens, and premium accessories.</p>
+                    <div class="bundle-price">$1,299 <span class="original">$1,599</span></div>
+                    <button class="select-bundle">Select Bundle</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Manuals</a></li>
+                    <li><a href="#">Drivers</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Professional</h4>
+                <ul>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact Sales</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Firmware Updates</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Canon - Canon EOS R10. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            
+            <!-- Checkout Form -->
+            <div id="checkoutForm" class="checkout-form-wrapper">
+                <div class="modal-header">
+                    <h2>Canon EOS R10</h2>
+                    <p>Complete your order</p>
+                </div>
+
+                <form class="checkout-form" id="purchaseForm">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number" value="1" min="1" required>
+                        </div>
+                    </div>
+
+                    <div class="price-summary">
+                        <div class="label">Total Price</div>
+                        <div class="total">$1,499</div>
+                    </div>
+
+                    <button type="submit" class="checkout-btn">Complete Purchase</button>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="checkout-success">
+                <div class="success-icon">✓</div>
+                <div class="success-message">Order Confirmed!</div>
+                <div class="success-subtext">Thank you for your purchase. Your Canon EOS R10 will be shipped within 2-3 business days.</div>
+                <button class="checkout-btn" onclick="document.getElementById('checkoutModal').classList.remove('active'); document.getElementById('checkoutForm').style.display='block'; document.getElementById('successMessage').classList.remove('show'); document.getElementById('purchaseForm').reset();">Continue Shopping</button>
             </div>
         </div>
     </div>
 
-    <!-- Specifications Section -->
-    <div class="container-fluid specification mt-5 pt-5">
-        <div class="container">
-            <div class="row align-items-center g-5">
+    <script>
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const closeModal = document.getElementById('closeModal');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const purchaseForm = document.getElementById('purchaseForm');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const successMessage = document.getElementById('successMessage');
 
-                <div class="col-md-6 d-flex justify-content-center align-items-center mb-5 pb-5 mt-5 pt-5">
-                    <img src="assets/r10.jpg" class="img-fluid" alt="Camera Specifications">
-                </div>
+        /* Simple carousel for specs images (autoplay with pause-on-hover) */
+        (function() {
+            const carousel = document.getElementById('specsCarousel');
+            const track = carousel && carousel.querySelector('.carousel-track');
+            if (!carousel || !track) return;
+            const slides = Array.from(track.children);
+            const nextBtn = carousel.querySelector('[data-action="next"]');
+            const prevBtn = carousel.querySelector('[data-action="prev"]');
+            const dotsWrap = document.getElementById('specsCarouselDots');
+            let currentIndex = 0;
+            const autoplayDelay = 4000;
+            let autoplayId = null;
 
-                <div class="col-md-6 px-4 mb-md-5 mb-5 pb-5">
-                    <h3 class="fw-bold display-4 mb-3 mt-5">Specifications</h3>
-                    <ul class="list-unstyled fs-6 lh-lg">
-                        <li><span class="fw-bold">Sensor:</span> 24.2MP APS-C CMOS</li>
-                        <li><span class="fw-bold">Image Processor:</span> DIGIC X</li>
-                        <li><span class="fw-bold">Autofocus:</span> Dual Pixel CMOS AF II with Eye Detection</li>
-                        <li><span class="fw-bold">ISO Range:</span> 100-32000 (expandable to 51200)</li>
-                        <li><span class="fw-bold">Continuous Shooting:</span> Up to 15 fps (Mechanical), 23 fps
-                            (Electronic)</li>
-                        <li><span class="fw-bold">Video Recording:</span> 4K UHD at 30p/25p/24p, Full HD at 120p</li>
-                        <li><span class="fw-bold">Viewfinder:</span> 2.36M-dot OLED EVF</li>
-                        <li><span class="fw-bold">LCD Screen:</span> 3.0-inch Vari-angle Touchscreen</li>
-                        <li><span class="fw-bold">Connectivity:</span> Wi-Fi and Bluetooth</li>
-                    </ul>
-                </div>
+            function createDots() {
+                if (!dotsWrap) return;
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                    dot.dataset.index = i;
+                    dotsWrap.appendChild(dot);
+                });
+            }
 
-                <!-- Promos & Inquiries Section -->
-                <div id="promos-inquiries" class="container-fluid promos-inquiries rounded-5 mt-5 pt-5">
-                    <div class="container text-center">
-                        <h2 class="fw-bold display-4 mb-4 mt-4">Promos & Inquiries</h2>
-                        <p class="fs-6 fst-italic mb-5">
-                            Get your Canon EOS R10 now and take advantage of our exclusive offers for a limited time.
-                        </p>
+            function update() {
+                const offset = -currentIndex * 100;
+                track.style.transform = `translateX(${offset}%)`;
+                if (!dotsWrap) return;
+                Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+            }
 
-                        <!-- PROMO CARDS -->
-                        <div class="row justify-content-center g-4 ms-5 me-5 mt-4">
-                            <!-- Promo 1 -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="card h-100 shadow-sm border-dark rounded-4">
-                                    <div class="card-body py-4">
-                                        <h5 class="card-title fw-bold">Free Accessories</h5>
-                                        <p class="card-text mb-0 pt-3">
-                                            Receive a <strong>128GB SD Card</strong> and <strong>LP-E17 Battery</strong>
-                                            with every purchase.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+            function goNext() { currentIndex = (currentIndex + 1) % slides.length; update(); }
+            function goPrev() { currentIndex = (currentIndex - 1 + slides.length) % slides.length; update(); }
 
-                            <!-- Promo 2 -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="card h-100 shadow-sm border-dark rounded-4">
-                                    <div class="card-body py-4">
-                                        <h5 class="card-title fw-bold">Limited Offer</h5>
-                                        <p class="card-text mb-0  pt-3">
-                                            Enjoy <strong>12 months 0%</strong> installment plan available on select
-                                            banks.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+            function startAutoplay() {
+                stopAutoplay();
+                autoplayId = setInterval(goNext, autoplayDelay);
+            }
 
-                            <!-- Promo 3 -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="card h-100 shadow-sm border-dark rounded-4">
-                                    <div class="card-body py-4">
-                                        <h5 class="card-title fw-bold">Extended Warranty</h5>
-                                        <p class="card-text mb-0  pt-3">
-                                            Register online and receive an additional <strong>1-year warranty</strong>
-                                            for free.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            function stopAutoplay() {
+                if (autoplayId) {
+                    clearInterval(autoplayId);
+                    autoplayId = null;
+                }
+            }
 
-                        <!-- INQUIRY FORM -->
-                        <div class="row justify-content-center g-4 mt-5 mb-5">
-                            <div class="col-lg-8">
-                                <div class="card shadow-sm border-dark rounded-4 mb-5">
-                                    <div class="card-body p-4">
-                                        <h5 class="fw-bold fs-4 py-3">Inquire About This Product</h5>
-                                        <p class="fst-italic fs-6 pb-3 text-muted">
-                                            We’re pleased to assist you with your inquiries. Fill out the form below.
-                                        </p>
-                                        <form>
-                                            <div class="row g-3">
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control border-dark"
-                                                        placeholder="Full Name" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="email" class="form-control border-dark"
-                                                        placeholder="Email Address" required>
-                                                </div>
-                                                <div class="col-12">
-                                                    <textarea class="form-control border-dark" rows="4"
-                                                        placeholder="Your Inquiry." required></textarea>
-                                                </div>
-                                            </div>
-                                            <button type="submit"
-                                                class="btn btn-dark rounded-pill mt-4 px-4">Send</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            if (nextBtn) nextBtn.addEventListener('click', () => { goNext(); startAutoplay(); });
+            if (prevBtn) prevBtn.addEventListener('click', () => { goPrev(); startAutoplay(); });
 
-                    </div>
-                </div>
+            if (dotsWrap) {
+                dotsWrap.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('carousel-dot')) {
+                        currentIndex = Number(e.target.dataset.index);
+                        update();
+                        startAutoplay();
+                    }
+                });
+            }
 
-                <footer class="container-fluid text-center py-4 mt-5">
-                    <div class="container">
-                        <div class="fw-bold display-5">Contact Us</div>
-                        <p class="fs-6 mt-4"><span>Email:</span> support@shetech.com</p>
-                        <p class="fs-6 mt-4"><span>Phone:</span> +1 (555) 123-4567</p>
-                        <p class="fs-6 mt-4"><span>Link:</span> www.shetech.com</p>
-                        <p class="fs-6 mt-4"><span>Social:</span> facebook.com/shetech | twitter.com/shetech |
-                            instagram.com/shetech
-                        </p>
-                    </div>
+            // Pause autoplay on hover/focus for accessibility
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+            carousel.addEventListener('focusin', stopAutoplay);
+            carousel.addEventListener('focusout', startAutoplay);
 
-                    <div class="container-fluid mt-4 pt-4 border-top border-dark">
-                        <div class="row">
-                            <div class="col">
-                                <p class="mb-0">&copy; 2025 SheTech. All rights reserved.</p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+            createDots();
+            update();
+            startAutoplay();
+        })();
 
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-                    crossorigin="anonymous"></script>
+        // Open modal
+        buyNowBtn.addEventListener('click', () => {
+            checkoutModal.classList.add('active');
+        });
 
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            checkoutModal.classList.remove('active');
+            checkoutForm.style.display = 'block';
+            successMessage.classList.remove('show');
+            purchaseForm.reset();
+        });
+
+        // Close modal when clicking overlay
+        checkoutModal.addEventListener('click', (e) => {
+            if (e.target === checkoutModal) {
+                checkoutModal.classList.remove('active');
+                checkoutForm.style.display = 'block';
+                successMessage.classList.remove('show');
+                purchaseForm.reset();
+            }
+        });
+
+        // Handle form submission
+        purchaseForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Hide form and show success message
+            checkoutForm.style.display = 'none';
+            successMessage.classList.add('show');
+        });
+    </script>
 </body>
-
 </html>
